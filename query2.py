@@ -16,12 +16,10 @@ warehouse_functions = stock[1]
 
 # checking if user or employee and greeing with no password
 name = "Jeremy".capitalize()
-
-password = "coopers"
+password = "copper"
 employee = Employee(name, password)
 user = User(name)
 after_check = employee.get_user_name(personnel)
-# after_check = employee.authenticate(password)
 # options for user and for employee
 option = employee.option_check(after_check)
 history = 0
@@ -69,8 +67,9 @@ else:
     print(f"'{option}' is not a valid operation.")
     print("*" * 50)
 # Print user history
-
-# Thank the user for the visit
-# user.bye()
-employee.bye(history)
+# Thank the employee/user for the visit
+if after_check:
+    employee.bye(history)
+else:
+    user.bye()
 

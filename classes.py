@@ -152,14 +152,13 @@ class Employee(User):
         self.head_of = head_of
         # self.user_name = user_name
 
-    def get_user_name(self, personnel):  # authenticate by name
-        for employee in range(len(personnel)):
-            if personnel[employee]._name == self._name:
-                # print(employee)
+    def get_user_name(self, personnel):  # authenticate by name and password
+        for employee in personnel:
+            if employee._name == self._name and employee._Employee__password == self._Employee__password:
                 self.greet()
                 return True
-            super().greet()
-            return False
+        super().greet()
+        return False
 
     def authenticate(self, password: str):
         if self.__password == password:
